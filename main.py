@@ -5,6 +5,7 @@ import gd_organizer
 import gd_hardspec
 import gd_netscanner
 import gd_prockiller
+import gd_webcheck
 
 def clear_screen():
     if platform.system() == "Windows":
@@ -14,7 +15,7 @@ def clear_screen():
 
 def show_header():
     print("========================================")
-    print("           GDHive - v1.0               ")
+    print("           GDHive - v1.1               ")
     print("      Created by GreenDataDev          ")
     print("========================================")
 
@@ -27,6 +28,7 @@ def main():
         print("3. Hardware-Spezifikationen")
         print("4. Netzwerk-Scanner")
         print("5. Prozess-Manager")
+        print("6. Web & Server Check")
         print("0. Beenden")
         
         choice = input("\nWähle eine Option: ")
@@ -61,6 +63,12 @@ def main():
             show_header()
             print("--- PROZESS-MANAGER ---")
             gd_prockiller.show_processes()
+            input("\nDrücke Enter, um zum Menü zurückzukehren...")
+        elif choice == "6":
+            clear_screen()
+            show_header()
+            print("--- WEB & SERVER CHECK ---")
+            gd_webcheck.run_check()
             input("\nDrücke Enter, um zum Menü zurückzukehren...")
         elif choice == "0":
             print("\nGDHive wird beendet. Bis bald!")
