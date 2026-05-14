@@ -58,7 +58,9 @@ def show_specs():
     addrs = psutil.net_if_addrs()
     for interface_name, interface_addresses in addrs.items():
         for address in interface_addresses:
-            if str(address.family) == 'AddressFamily.AF_INET':
+            # Wir prüfen einfach, ob die Adresse Punkte hat (typisch für IPv4) 
+            # und keine lokale Loopback-Adresse ist
+            if "." in address.address and not address.address.startswith("127."):
                 print(f"Interface: {interface_name}")
                 print(f"  IP-Adresse:  {address.address}")
 
