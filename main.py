@@ -3,6 +3,7 @@ import platform
 import gd_sysinfo
 import gd_organizer
 import gd_hardspec
+import gd_netscanner
 
 def clear_screen():
     if platform.system() == "Windows":
@@ -23,6 +24,7 @@ def main():
         print("1. System-Status anzeigen")
         print("2. Datei-Organizer")
         print("3. Hardware-Spezifikationen (Detailliert)")
+        print("4. Netzwerk-Scanner")
         print("0. Beenden")
         
         choice = input("\nWähle eine Option: ")
@@ -45,6 +47,12 @@ def main():
             show_header()
             print("--- HARDWARE-SPEZIFIKATIONEN (DETAILLIERT) ---")
             gd_hardspec.show_specs()
+            input("\nDrücke Enter, um zum Menü zurückzukehren...")
+        elif choice == "4":
+            clear_screen()
+            show_header()
+            print("--- NETZWERK-SCANNER ---")
+            gd_netscanner.scan_network()
             input("\nDrücke Enter, um zum Menü zurückzukehren...")
         elif choice == "0":
             print("\nGDHive wird beendet. Bis bald!")
