@@ -2,6 +2,7 @@ import os
 import platform
 import gd_sysinfo
 import gd_organizer
+import gd_hardspec
 
 def clear_screen():
     if platform.system() == "Windows":
@@ -19,8 +20,9 @@ def main():
     while True:
         clear_screen()
         show_header()
-        print("1. [System-Status anzeigen]")
-        print("2. [Datei-Organizer (In Arbeit)]")
+        print("1. System-Status anzeigen")
+        print("2. Datei-Organizer")
+        print("3. Hardware-Spezifikationen (Detailliert)")
         print("0. Beenden")
         
         choice = input("\nWähle eine Option: ")
@@ -28,6 +30,7 @@ def main():
         if choice == "1":
             clear_screen()
             show_header()
+            print("--- SYSTEM-STATUS ---")
             gd_sysinfo.get_system_status()
             input("\nDrücke Enter, um zum Menü zurückzukehren...")
         elif choice == "2":
@@ -37,6 +40,12 @@ def main():
             pfad = input("Welchen Ordner soll ich sortieren? (Punkt '.' für aktuellen): ")
             gd_organizer.organize_folder(pfad)
             input("\nFertig! Drücke Enter...")
+        elif choice == "3":
+            clear_screen()
+            show_header()
+            print("--- HARDWARE-SPEZIFIKATIONEN (DETAILLIERT) ---")
+            gd_hardspec.show_specs()
+            input("\nDrücke Enter, um zum Menü zurückzukehren...")
         elif choice == "0":
             print("\nGDHive wird beendet. Bis bald!")
             break
