@@ -2,8 +2,6 @@ import psutil
 import platform
 
 def get_system_status():
-    print("--- SYSTEM STATUS ---")
-    
     # Betriebssystem
     system = platform.system()
     version = platform.release()

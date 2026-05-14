@@ -14,10 +14,6 @@ def get_size(bytes, suffix="B"):
         bytes /= factor
 
 def show_specs():
-    print("\n" + "="*40)
-    print("      GDHardspec - System Report")
-    print("="*40)
-
     # 1. Basis-Systeminfos
     uname = platform.uname()
     print(f"System:    {uname.system}")
@@ -67,7 +63,6 @@ def show_specs():
                 print(f"  IP-Adresse:  {address.address}")
 
     print("\n" + "="*40)
-    input("\nDrücke Enter, um zum Hauptmenü zurückzukehren...")
 
 if __name__ == "__main__":
     show_specs()
